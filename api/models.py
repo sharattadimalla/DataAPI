@@ -4,11 +4,13 @@ from typing import List
 
 class UserInput(BaseModel):
     entity_name: str
-    start_date: str
-    end_data: str
+    key: str
+    value: str
+    start_date: str = None
+    end_data: str = None
 
 
 class UserResponse(BaseModel):
     request_id: str
     status: str
-    data: List[dict]
+    data: List[dict] = None

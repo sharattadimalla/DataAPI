@@ -5,6 +5,7 @@ from utils import generate_guid
 app = FastAPI(
     title="Data API",
     summary="API to retrieve data",
+    
     version="0.0.1",
     swagger_ui_parameters={"syntaxHighlight": False},
 )
@@ -17,7 +18,6 @@ def request_data(payload: UserInput) -> str:
     Returns:
         str: returns a request_id used to track data request
     """
-
     result = generate_guid()
     return result
 
