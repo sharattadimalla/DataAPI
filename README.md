@@ -6,6 +6,38 @@
 
 ## Demo
 
+```
+# Running the API
+docker-compose up
+
+# Submitting a data request
+
+curl -X 'POST' \
+  'http://127.0.0.1:18000/data' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "entity_name": "Individual",
+  "key": "TIN",
+  "value": "123-45-6789",
+  "start_date": "string",
+  "end_data": "string"
+}'
+
+# Get data request
+
+curl -X 'GET' \
+'http://127.0.0.1:18000/data/4f09eaf3-c98a-414e-b90c-9d2a9dfa6a83' \
+  -H 'accept: application/json'
+
+## Output
+{
+  "request_id": "4f09eaf3-c98a-414e-b90c-9d2a9dfa6a83",
+  "status": "processing",
+  "data": []
+}
+```
+
 ## High Level Functionality
 
 - Authenticate & Authorize users

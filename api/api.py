@@ -5,7 +5,6 @@ from utils import generate_guid
 app = FastAPI(
     title="Data API",
     summary="API to retrieve data",
-    
     version="0.0.1",
     swagger_ui_parameters={"syntaxHighlight": False},
 )
@@ -30,6 +29,6 @@ def get_data(id: str) -> UserResponse:
         json: returns a json object of items of class Item
     """
 
-    resp = UserResponse(request_id=id, data=[])
+    resp = UserResponse(request_id=id, status="processing", data=[])
     print(resp)
     return resp
