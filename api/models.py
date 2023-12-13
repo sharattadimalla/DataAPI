@@ -6,8 +6,8 @@ class UserInput(BaseModel):
     entity_name: str
     key: str
     value: str
-    start_date: str = None
-    end_data: str = None
+    start_date: str
+    end_data: str
 
 
 class UserResponse(BaseModel):
