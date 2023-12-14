@@ -8,7 +8,7 @@ def generate_guid() -> str:
 
 
 def get_redis_conn():
-    r = redis.Redis(host="redis_service", port=6379, db=0)
+    r = redis.Redis(host="redis_service", port=6379, db=0, decode_responses=True)
     return r
 
 

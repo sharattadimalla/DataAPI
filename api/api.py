@@ -33,15 +33,17 @@ def get_data(id: str) -> UserResponse:
     Returns:
         json: returns a json object of items of class Item
     """
-    resp = redis_conn.hgetall(id)
-    return json.dumps(resp)
+    cache_resp = redis_conn.hgetall(id)
+    print(cache_resp.keys())
+    resp = UserResponse(request_id=id, status="processing")
+    return resp
 
 
-@app.put("/private/sql", status_code=200)
-def get_sql_query(input: UserInput) -> str:
-    """GET /private/sql to generate SQL query based on User Input
+# @app.put("/private/sql", status_code=200)
+# def get_sql_query(input: UserInput) -> str:
+#     """GET /private/sql to generate SQL query based on User Input
 
-    Returns:
-        str: returns a SQL query that can be executed on the warehouse
-    """
-    return generate_sql(input)
+#     Returns:
+#         str: returns a SQL query that can be executed on the warehouse
+#     """
+#     return generate_sql(input)
